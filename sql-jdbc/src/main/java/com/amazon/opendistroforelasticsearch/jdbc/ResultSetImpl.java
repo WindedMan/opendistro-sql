@@ -35,7 +35,6 @@ import com.amazon.opendistroforelasticsearch.jdbc.transport.http.HttpTransport;
 import com.amazon.opendistroforelasticsearch.jdbc.types.TypeConverter;
 import com.amazon.opendistroforelasticsearch.jdbc.types.TypeConverters;
 import com.amazon.opendistroforelasticsearch.jdbc.types.UnrecognizedElasticsearchTypeException;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;

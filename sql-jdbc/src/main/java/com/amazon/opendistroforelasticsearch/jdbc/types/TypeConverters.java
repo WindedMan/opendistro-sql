@@ -16,12 +16,8 @@
 
 package com.amazon.opendistroforelasticsearch.jdbc.types;
 
-import java.sql.Date;
-import java.sql.JDBCType;
-import java.sql.Time;
-import java.sql.Timestamp;
+import java.sql.*;
 import java.util.Arrays;
-import java.util.Base64;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -45,6 +41,7 @@ public class TypeConverters {
 
     static {
         // TODO - JDBCType.VARBINARY - byte[] -> Try ES data type
+        tcMap.put(JDBCType.VARBINARY, new VarBinaryTypeConverter());
         tcMap.put(JDBCType.TIMESTAMP, new TimestampTypeConverter());
         tcMap.put(JDBCType.DATE, new DateTypeConverter());
         tcMap.put(JDBCType.TIME, new TimeTypeConverter());
@@ -69,6 +66,26 @@ public class TypeConverters {
         return tcMap.get(jdbcType);
     }
 
+    public static class VarBinaryTypeConverter extends BaseTypeConverter {
+        private static final Set<Class> supportedJavaClass = Collections.unmodifiableSet(
+                new HashSet<>(Arrays.asList(
+                        Byte[].class
+                )));
+
+        private VarBinaryTypeConverter(){
+
+        }
+
+        @Override
+        public Class getDefaultJavaClass() {
+            return Byte[].class;
+        }
+
+        @Override
+        public Set<Class> getSupportedJavaClasses() {
+            return supportedJavaClass;
+        }
+    }
     public static class TimestampTypeConverter extends BaseTypeConverter {
 
         private static final Set<Class> supportedJavaClasses = Collections.unmodifiableSet(
