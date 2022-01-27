@@ -5,7 +5,7 @@ import java.util.Map;
 
 
 
-public class VarBinaryType implements TypeHelper<Byte[]>{
+public class VarBinaryType implements TypeHelper<byte[]>{
 
     public static final VarBinaryType INSTANCE = new VarBinaryType();
 
@@ -14,11 +14,11 @@ public class VarBinaryType implements TypeHelper<Byte[]>{
     }
 
     @Override
-    public Byte[] fromValue(Object value, Map<String, Object> conversionParams) throws SQLException {
+    public byte[] fromValue(Object value, Map<String, Object> conversionParams) throws SQLException {
         if(value == null){
             return null;
         }else {
-            return asByteArray(value.toString().getBytes());
+            return value.toString().getBytes();
         }
 
     }

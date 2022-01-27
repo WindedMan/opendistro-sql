@@ -69,7 +69,7 @@ public class TypeConverters {
     public static class VarBinaryTypeConverter extends BaseTypeConverter {
         private static final Set<Class> supportedJavaClass = Collections.unmodifiableSet(
                 new HashSet<>(Arrays.asList(
-                        Byte[].class
+                        byte[].class
                 )));
 
         private VarBinaryTypeConverter(){
@@ -78,7 +78,7 @@ public class TypeConverters {
 
         @Override
         public Class getDefaultJavaClass() {
-            return Byte[].class;
+            return byte[].class;
         }
 
         @Override

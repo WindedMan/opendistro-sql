@@ -45,7 +45,7 @@ public abstract class BaseTypeConverter implements TypeConverter {
         typeHandlerMap.put(Date.class, DateType.INSTANCE);
         typeHandlerMap.put(Time.class, TimeType.INSTANCE);
 
-        typeHandlerMap.put(Byte[].class, VarBinaryType.INSTANCE);
+        typeHandlerMap.put(byte[].class, VarBinaryType.INSTANCE);
 
     }
 
